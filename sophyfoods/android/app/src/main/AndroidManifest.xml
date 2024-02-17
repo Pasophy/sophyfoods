@@ -3,6 +3,8 @@
         android:label="sophyfoods"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+        <meta-data android:name="com.google.android.geo.API_KEY"
+               android:value="AIzaSyDS4SXpKDLvq6qAyjFc_3D1RXF7wIE6zr0"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"

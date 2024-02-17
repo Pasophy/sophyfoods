@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sophyfoods/utility/mydrawer.dart';
+import 'package:sophyfoods/Mydrawers/drawerbuyers.dart';
 import 'package:sophyfoods/utility/mystyle.dart';
 import 'package:sophyfoods/utility/usersingnout.dart';
 
@@ -25,7 +25,7 @@ class _MybuyersState extends State<Mybuyers> {
           )
         ],
       ),
-      drawer:showdrawer(context),
+      drawer: drawerbuyers(context),
     );
   }
 }

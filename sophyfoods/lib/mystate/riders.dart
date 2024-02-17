@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sophyfoods/utility/mydrawer.dart';
+import 'package:sophyfoods/Mydrawers/drawerriders.dart';
 import 'package:sophyfoods/utility/mystyle.dart';
 import 'package:sophyfoods/utility/usersingnout.dart';
 
@@ -25,7 +25,7 @@ class _MyridersState extends State<Myriders> {
           )
         ],
       ),
-      drawer: showdrawer(context),
+      drawer: drawerriders(context),
     );
   }
 }

@@ -20,7 +20,7 @@ class Mystyle {
         Widget showtitle3(text, color) => Text(
         text,
         style: TextStyle(
-            fontSize: 14.0, fontWeight: FontWeight.bold, color: color),
+            fontSize: 20.0, fontWeight: FontWeight.bold, color: color),
       );
 
   Mystyle();

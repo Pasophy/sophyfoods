@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:sophyfoods/utility/mydrawer.dart';
+import 'package:sophyfoods/Mydrawers/drawerselers.dart';
 import 'package:sophyfoods/utility/mystyle.dart';
 import 'package:sophyfoods/utility/usersingnout.dart';
 
@@ -32,10 +32,8 @@ class _MyselersState extends State<Myselers> {
     return Scaffold(
       appBar: AppBar(
         //backgroundColor: Color(Myconstant().appbarcolor),
-        title: Mystyle().showtitle2(
-            username == null ? 'Seler' : '$username loging',
-             Colors.white),
-              
+        title: Mystyle().showtitle2('MainShop',
+             Colors.white),    
         actions: <Widget>[
           IconButton(
             onPressed: () =>usersignout(context),
@@ -44,7 +42,7 @@ class _MyselersState extends State<Myselers> {
           )
         ],
       ),
-      drawer: showdrawer(context),
+      drawer: drawerselers(context),
     );
   }
 }

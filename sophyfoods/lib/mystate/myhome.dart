@@ -3,7 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sophyfoods/mystate/buyers.dart';
 import 'package:sophyfoods/mystate/riders.dart';
 import 'package:sophyfoods/mystate/selers.dart';
-import 'package:sophyfoods/utility/mydrawer.dart';
+import 'package:sophyfoods/Mydrawers/drawerhomescren.dart';
 import 'package:sophyfoods/utility/showdailog.dart';
 
 class Myhome extends StatefulWidget {
@@ -52,7 +52,7 @@ class _MyhomeState extends State<Myhome> {
       appBar: AppBar(
         //backgroundColor: Color(Myconstant().appbarcolor),
       ),
-      drawer: showdrawer(context),
+      drawer: drawerhomescrenc(context),
     );
   }
 }

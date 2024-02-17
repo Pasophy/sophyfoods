@@ -3,7 +3,7 @@ import 'package:sophyfoods/myconstant/myconstant.dart';
 import 'package:sophyfoods/mystate/signin.dart';
 import 'package:sophyfoods/mystate/signup.dart';
 
-Widget showdrawer(BuildContext context) {
+Widget drawerriders(BuildContext context) {
   return Drawer(
     child: ListView(
       children: <Widget>[
@@ -64,10 +64,12 @@ Widget drawerheader() {
           backgroundImage: const AssetImage('images/logo3.png'),
           child: Container(
             decoration: BoxDecoration(
-              border: Border.all(color: Colors.red,width: 3.0,style: BorderStyle.solid,strokeAlign:0.9),
-              shape: BoxShape.circle
-              
-            ),
+                border: Border.all(
+                    color: Colors.red,
+                    width: 3.0,
+                    style: BorderStyle.solid,
+                    strokeAlign: 0.9),
+                shape: BoxShape.circle),
           ),
         ),
         accountName: const Text('Profile'),
