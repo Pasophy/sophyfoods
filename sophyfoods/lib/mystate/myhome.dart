@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:sophyfoods/myconstant/myconstant.dart';
-import 'package:sophyfoods/mystate/signin.dart';
-import 'package:sophyfoods/mystate/signup.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:sophyfoods/mystate/buyers.dart';
+import 'package:sophyfoods/mystate/riders.dart';
+import 'package:sophyfoods/mystate/selers.dart';
+import 'package:sophyfoods/utility/mydrawer.dart';
+import 'package:sophyfoods/utility/showdailog.dart';
 
 class Myhome extends StatefulWidget {
   const Myhome({super.key});
@@ -12,69 +15,44 @@ class Myhome extends StatefulWidget {
 
 class _MyhomeState extends State<Myhome> {
   @override
+  void initState() {
+    super.initState();
+    checkuserloging();
+  }
+
+  Future<Null> checkuserloging() async {
+    try {
+      SharedPreferences preferences = await SharedPreferences.getInstance();
+      String? usertype = preferences.getString('usertype');
+      if (usertype != null && usertype.isNotEmpty) {
+        if (usertype == 'selers') {
+          routrtoservice(const Myselers());
+        } else if (usertype == 'buyers') {
+          routrtoservice(const Mybuyers());
+        } else if (usertype == 'riders') {
+          routrtoservice(const Myriders());
+        } 
+      } 
+    } catch (e) {
+      // ignore: use_build_context_synchronously
+      mydialog(context, 'Error');
+    }
+  }
+
+  void routrtoservice(Widget widget) {
+    MaterialPageRoute route = MaterialPageRoute(
+      builder: (context) => widget,
+    );
+    Navigator.pushAndRemoveUntil(context, route, (route) => false);
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(Myconstant().appbarcolor),
+        //backgroundColor: Color(Myconstant().appbarcolor),
       ),
-      drawer: showdrawer(),
-    );
-  }
-
-  Widget showdrawer() {
-    return Drawer(
-      child: ListView(
-        children: <Widget>[
-          drawerheader(),
-          menusignin(),
-          menusignup(),
-        ],
-      ),
-    );
-  }
-
-  Widget menusignin() {
-    return ListTile(
-      leading: const Icon(Icons.android_sharp),
-      title: const Text("Sign in"),
-      hoverColor: Colors.red,
-      onTap: () {
-        Navigator.pop(context);
-        MaterialPageRoute route = MaterialPageRoute(
-          builder: (values) => const Mysignin(),
-        );
-        Navigator.push(context, route);
-      },
-    );
-  }
-
-  Widget menusignup() {
-    return ListTile(
-      leading: const Icon(Icons.android_sharp),
-      title: const Text("Sign up"),
-      hoverColor: Colors.black54,
-      onTap: () {
-        Navigator.pop(context);
-        MaterialPageRoute route = MaterialPageRoute(
-          builder: (values) => const Mysignup(),
-        );
-        Navigator.push(context, route);
-      },
-    );
-  }
-
-  Widget drawerheader() {
-    return Column(
-      children: [
-        UserAccountsDrawerHeader(
-        decoration: BoxDecoration(color:Color(Myconstant().appbarcolor)),
-          currentAccountPicture: const CircleAvatar(
-            backgroundImage: AssetImage('images/logo3.png'),
-          ),
-          accountName: const Text('Profile'),
-          accountEmail: const Text('pasophy18@gmail.com'),
-        ),
-      ],
+      drawer: showdrawer(context),
     );
   }
 }

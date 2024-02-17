@@ -1,7 +1,7 @@
 import 'dart:convert';
-
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sophyfoods/myconstant/myconstant.dart';
 import 'package:sophyfoods/mymodel/usermodel.dart';
 import 'package:sophyfoods/mystate/buyers.dart';
@@ -28,7 +28,7 @@ class _MysigninState extends State<Mysignin> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(Myconstant().appbarcolor),
+        //backgroundColor: Color(Myconstant().appbarcolor),
         title: Mystyle().showtitle2('Sign In', Colors.white),
       ),
       body: GestureDetector(
@@ -222,11 +222,11 @@ class _MysigninState extends State<Mysignin> {
         if (password == usermodel.password) {
           String? usertype = usermodel.usertype;
           if (usertype == 'selers') {
-            routetoservice(const Myselers());
+            routetoservice(const Myselers(),usermodel);
           } else if (usertype == 'buyers') {
-            routetoservice(const Mybuyers());
+            routetoservice(const Mybuyers(),usermodel);
           } else if (usertype == 'riders') {
-            routetoservice(const Myriders());
+            routetoservice(const Myriders(),usermodel);
           } else {
             // ignore: use_build_context_synchronously
             mydialog(context, 'error login');
@@ -239,7 +239,15 @@ class _MysigninState extends State<Mysignin> {
     }
   }
 
-  void routetoservice(Widget mywidget) {
+  Future<Null> checkpreferences(Usermodel usermodel) async {
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+    preferences.setString('id', usermodel.id.toString());
+    preferences.setString('usertype', usermodel.usertype.toString());
+    preferences.setString('name', usermodel.name.toString());
+  }
+
+  void routetoservice(Widget mywidget, Usermodel usermodel) {
+    checkpreferences(usermodel);
     MaterialPageRoute route = MaterialPageRoute(builder: (context) => mywidget);
     Navigator.pushAndRemoveUntil(context, route, (route) => false);
   }

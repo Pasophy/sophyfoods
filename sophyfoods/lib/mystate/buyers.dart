@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:sophyfoods/myconstant/myconstant.dart';
+import 'package:sophyfoods/utility/mydrawer.dart';
 import 'package:sophyfoods/utility/mystyle.dart';
+import 'package:sophyfoods/utility/usersingnout.dart';
 
 class Mybuyers extends StatefulWidget {
   const Mybuyers({super.key});
@@ -14,9 +15,17 @@ class _MybuyersState extends State<Mybuyers> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(Myconstant().appbarcolor),
+        //backgroundColor: Color(Myconstant().appbarcolor),
         title: Mystyle().showtitle2('Buyser', Colors.white),
+        actions: <Widget>[
+          IconButton(
+            onPressed: () => usersignout(context),
+            icon: const Icon(Icons.logout),
+            color: Colors.white,
+          )
+        ],
       ),
+      drawer:showdrawer(context),
     );
   }
 }

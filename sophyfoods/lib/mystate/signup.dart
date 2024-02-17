@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:sophyfoods/myconstant/myconstant.dart';
 import 'package:sophyfoods/utility/mystyle.dart';
@@ -23,7 +25,7 @@ class _MysignoutState extends State<Mysignup> {
     widths = MediaQuery.sizeOf(context).width;
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(Myconstant().appbarcolor),
+        //backgroundColor: Color(Myconstant().appbarcolor),
         title: Mystyle().showtitle2("Sign Up", Colors.white),
       ),
       body: GestureDetector(
@@ -298,7 +300,8 @@ class _MysignoutState extends State<Mysignup> {
         '${Myconstant().domain}/projectflutterfoods/insertData.php?isAdd=true&name=$name&username=$username&password=$password&usertype=$usertype';
     try {
       Response response = await Dio().get(url);
-      if (response.toString() == 'true') {
+      var result = json.decode(response.data);//chang unicode8
+      if (result.toString() == 'true') {
         // ignore: use_build_context_synchronously
         Navigator.pop(context);
       } else {
