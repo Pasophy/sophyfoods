@@ -7,7 +7,7 @@ import 'package:sophyfoods/mystate/selers.dart';
 import 'package:sophyfoods/mystate/signin.dart';
 import 'package:sophyfoods/mystate/signup.dart';
 
-  final  Map<String, WidgetBuilder> routes = {
+final Map<String, WidgetBuilder> routes = {
   "/myhome": (BuildContext context) => const Myhome(),
   "/signin": (BuildContext context) => const Mysignin(),
   "/signout": (BuildContext context) => const Mysignup(),
@@ -16,7 +16,7 @@ import 'package:sophyfoods/mystate/signup.dart';
   "/buyers": (BuildContext context) => const Mybuyers(),
 };
 
- String? initialroute;
+String? initialroute;
 void main() {
   initialroute = Myconstant().myhome;
   runApp(const MyApp());
@@ -28,10 +28,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(appBarTheme: AppBarTheme(color: Color(Myconstant().appbarcolor))),
+      theme: ThemeData(
+        appBarTheme: AppBarTheme(
+          color: Color(Myconstant().appbarcolor),
+        ),
+      ),
       routes: routes,
       initialRoute: Myconstant().myhome,
-      
     );
   }
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sophyfoods/Mydrawers/drawerselers.dart';
 import 'package:sophyfoods/utility/mystyle.dart';
+import 'package:sophyfoods/utility/opendrawer.dart';
 import 'package:sophyfoods/utility/usersingnout.dart';
 
 class Myselers extends StatefulWidget {
@@ -31,12 +32,12 @@ class _MyselersState extends State<Myselers> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: opendrawer(),
         //backgroundColor: Color(Myconstant().appbarcolor),
-        title: Mystyle().showtitle2('MainShop',
-             Colors.white),    
+        title: Mystyle().showtitle2('MainShop', Colors.white),
         actions: <Widget>[
           IconButton(
-            onPressed: () =>usersignout(context),
+            onPressed: () => usersignout(context),
             icon: const Icon(Icons.logout),
             color: Colors.white,
           )

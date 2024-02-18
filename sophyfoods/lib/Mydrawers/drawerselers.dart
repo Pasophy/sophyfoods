@@ -79,35 +79,31 @@ Widget signout(BuildContext context) {
 }
 
 Widget drawerheader() {
-  return Column(
-    children: [
-      UserAccountsDrawerHeader(
+  return UserAccountsDrawerHeader(
+    decoration: BoxDecoration(
+      color: Color(Myconstant().appbarcolor),
+      // image: const DecorationImage(
+      //   image: AssetImage('images/logo1.png'),
+      //   fit: BoxFit.fill,
+      // ),
+      gradient: RadialGradient(colors: [
+        Colors.white,
+        Color(Myconstant().appbarcolor),
+      ], radius: 1.3, center: const Alignment(-0.6, -0.1)),
+    ),
+    currentAccountPicture: CircleAvatar(
+      backgroundImage: const AssetImage('images/logo3.png'),
+      child: Container(
         decoration: BoxDecoration(
-          color: Color(Myconstant().appbarcolor),
-          // image: const DecorationImage(
-          //   image: AssetImage('images/logo1.png'),
-          //   fit: BoxFit.fill,
-          // ),
-          gradient: RadialGradient(colors: [
-            Colors.white,
-            Color(Myconstant().appbarcolor),
-          ], radius: 1.3, center: const Alignment(-0.6, -0.1)),
-        ),
-        currentAccountPicture: CircleAvatar(
-          backgroundImage: const AssetImage('images/logo3.png'),
-          child: Container(
-            decoration: BoxDecoration(
-                border: Border.all(
-                    color: Colors.red,
-                    width: 3.0,
-                    style: BorderStyle.solid,
-                    strokeAlign: 0.9),
-                shape: BoxShape.circle),
-          ),
-        ),
-        accountName: const Text('Pa Sophy',style: TextStyle(color: Colors.red,fontWeight: FontWeight.bold),),
-        accountEmail: const Text('pasophy18@gmail.com',style: TextStyle(color: Colors.red,fontWeight: FontWeight.bold),),
+            border: Border.all(
+                color: Colors.red,
+                width: 3.0,
+                style: BorderStyle.solid,
+                strokeAlign: 0.9),
+            shape: BoxShape.circle),
       ),
-    ],
+    ),
+    accountName: const Text('Pa Sophy',style: TextStyle(color: Colors.red,fontWeight: FontWeight.bold),),
+    accountEmail: const Text('pasophy18@gmail.com',style: TextStyle(color: Colors.red,fontWeight: FontWeight.bold),),
   );
 }

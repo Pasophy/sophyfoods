@@ -4,6 +4,7 @@ import 'package:sophyfoods/mystate/buyers.dart';
 import 'package:sophyfoods/mystate/riders.dart';
 import 'package:sophyfoods/mystate/selers.dart';
 import 'package:sophyfoods/Mydrawers/drawerhomescren.dart';
+import 'package:sophyfoods/utility/opendrawer.dart';
 import 'package:sophyfoods/utility/showdailog.dart';
 
 class Myhome extends StatefulWidget {
@@ -50,9 +51,12 @@ class _MyhomeState extends State<Myhome> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: opendrawer(),
         //backgroundColor: Color(Myconstant().appbarcolor),
       ),
       drawer: drawerhomescrenc(context),
     );
   }
+
+ 
 }
