@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:sophyfoods/myconstant/myconstant.dart';
-import 'package:sophyfoods/mystate/signin.dart';
-import 'package:sophyfoods/mystate/signup.dart';
+import 'package:sophyfoods/mystate/user_signin.dart';
+import 'package:sophyfoods/mystate/user_signup.dart';
 
-Widget drawerriders(BuildContext context) {
+Widget drawerbuyers(BuildContext context) {
   return Drawer(
     child: ListView(
       children: <Widget>[

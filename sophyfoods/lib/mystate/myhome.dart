@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:sophyfoods/mystate/buyers.dart';
-import 'package:sophyfoods/mystate/riders.dart';
-import 'package:sophyfoods/mystate/selers.dart';
-import 'package:sophyfoods/Mydrawers/drawerhomescren.dart';
+import 'package:sophyfoods/mystate/main_buyers.dart';
+import 'package:sophyfoods/mystate/main_riders.dart';
+import 'package:sophyfoods/mystate/main_selers.dart';
+import 'package:sophyfoods/mydrawers/drawer_homescren.dart';
+import 'package:sophyfoods/utility/mystyle.dart';
 import 'package:sophyfoods/utility/opendrawer.dart';
 import 'package:sophyfoods/utility/showdailog.dart';
 
@@ -52,6 +53,7 @@ class _MyhomeState extends State<Myhome> {
     return Scaffold(
       appBar: AppBar(
         leading: opendrawer(),
+        title: Mystyle().showtitle2('Home Shop', Colors.white),
         //backgroundColor: Color(Myconstant().appbarcolor),
       ),
       drawer: drawerhomescrenc(context),

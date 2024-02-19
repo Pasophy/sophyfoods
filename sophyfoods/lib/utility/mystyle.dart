@@ -14,7 +14,7 @@ class Mystyle {
   Widget showtitle2(text, color) => Text(
         text,
         style: TextStyle(
-            fontSize: 24.0, fontWeight: FontWeight.bold, color: color),
+            fontSize: 28.0, fontWeight: FontWeight.bold, color: color),
       );
 
         Widget showtitle3(text, color) => Text(

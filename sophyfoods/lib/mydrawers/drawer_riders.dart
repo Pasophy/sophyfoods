@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:sophyfoods/myconstant/myconstant.dart';
-import 'package:sophyfoods/mystate/signin.dart';
-import 'package:sophyfoods/mystate/signup.dart';
+import 'package:sophyfoods/mystate/user_signin.dart';
+import 'package:sophyfoods/mystate/user_signup.dart';
 
-Widget drawerbuyers(BuildContext context) {
+Widget drawerriders(BuildContext context) {
   return Drawer(
     child: ListView(
       children: <Widget>[
@@ -55,10 +55,14 @@ Widget drawerheader() {
           //   image: AssetImage('images/logo1.png'),
           //   fit: BoxFit.fill,
           // ),
-          gradient: RadialGradient(colors: [
-            Colors.white,
-            Color(Myconstant().appbarcolor),
-          ], radius: 1.3, center: const Alignment(-0.6, -0.1)),
+          gradient: RadialGradient(
+            colors: [
+              Colors.white,
+              Color(Myconstant().appbarcolor),
+            ],
+            radius: 1.3,
+            center: const Alignment(-0.6, -0.1),
+          ),
         ),
         currentAccountPicture: CircleAvatar(
           backgroundImage: const AssetImage('images/logo3.png'),

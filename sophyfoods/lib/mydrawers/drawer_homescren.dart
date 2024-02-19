@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sophyfoods/myconstant/myconstant.dart';
-import 'package:sophyfoods/mystate/signin.dart';
-import 'package:sophyfoods/mystate/signup.dart';
+import 'package:sophyfoods/mystate/user_signin.dart';
+import 'package:sophyfoods/mystate/user_signup.dart';
 import 'package:sophyfoods/utility/mystyle.dart';
 
 Widget drawerhomescrenc(BuildContext context) {
@@ -18,8 +18,8 @@ Widget drawerhomescrenc(BuildContext context) {
 
 Widget menusignin(BuildContext context) {
   return ListTile(
-    leading: Icon(Icons.login,size: 35.0,color: Color(Myconstant().reds),),
-    title: Mystyle().showtitle3("Sign In",Color(Myconstant().reds)),
+    leading: Icon(Icons.exit_to_app,size: 40.0,color: Color(Myconstant().reds),),
+    title: Mystyle().showtitle2("Sign In",Color(Myconstant().reds)),
     hoverColor: Colors.red,
     onTap: () {
       Navigator.pop(context);
@@ -33,8 +33,8 @@ Widget menusignin(BuildContext context) {
 
 Widget menusignup(BuildContext context) {
   return ListTile(
-    leading: Icon(Icons.logout,size: 35.0,color: Color(Myconstant().reds),),
-    title: Mystyle().showtitle3("Sign up", Color(Myconstant().reds)),
+    leading: Icon(Icons.logout,size: 40.0,color: Color(Myconstant().reds),),
+    title: Mystyle().showtitle2("Sign up", Color(Myconstant().reds)),
     hoverColor: Colors.black54,
     onTap: () {
       Navigator.pop(context);

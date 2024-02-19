@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sophyfoods/myconstant/myconstant.dart';
 import 'package:sophyfoods/mymodel/usermodel.dart';
-import 'package:sophyfoods/mystate/buyers.dart';
-import 'package:sophyfoods/mystate/riders.dart';
-import 'package:sophyfoods/mystate/selers.dart';
+import 'package:sophyfoods/mystate/main_buyers.dart';
+import 'package:sophyfoods/mystate/main_riders.dart';
+import 'package:sophyfoods/mystate/main_selers.dart';
 import 'package:sophyfoods/utility/mystyle.dart';
 import 'package:sophyfoods/utility/showdailog.dart';
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sophyfoods/Mydrawers/drawerbuyers.dart';
+import 'package:sophyfoods/mydrawers/drawer_buyers.dart';
 import 'package:sophyfoods/utility/mystyle.dart';
 import 'package:sophyfoods/utility/usersingnout.dart';
 
