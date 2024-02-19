@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sophyfoods/myconstant/myconstant.dart';
-import 'package:sophyfoods/mystate/user_signin.dart';
-import 'package:sophyfoods/mystate/user_signup.dart';
+import 'package:sophyfoods/myscreen/user_signin.dart';
+import 'package:sophyfoods/myscreen/user_signup.dart';
 
 Widget drawerriders(BuildContext context) {
   return Drawer(

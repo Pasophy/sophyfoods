@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:sophyfoods/mystate/myhome.dart';
+import 'package:sophyfoods/myscreen/myhomescreen.dart';
 
 Future<Null> usersignout(BuildContext context) async {
   SharedPreferences preferences = await SharedPreferences.getInstance();

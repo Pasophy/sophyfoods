@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:sophyfoods/myconstant/myconstant.dart';
-import 'package:sophyfoods/mystate/main_buyers.dart';
-import 'package:sophyfoods/mystate/myhome.dart';
-import 'package:sophyfoods/mystate/main_riders.dart';
-import 'package:sophyfoods/mystate/main_selers.dart';
-import 'package:sophyfoods/mystate/user_signin.dart';
-import 'package:sophyfoods/mystate/user_signup.dart';
+import 'package:sophyfoods/myscreen/main_buyers.dart';
+import 'package:sophyfoods/myscreen/myhomescreen.dart';
+import 'package:sophyfoods/myscreen/main_riders.dart';
+import 'package:sophyfoods/myscreen/main_selers.dart';
+import 'package:sophyfoods/myscreen/user_signin.dart';
+import 'package:sophyfoods/myscreen/user_signup.dart';
 
 final Map<String, WidgetBuilder> routes = {
   "/myhome": (BuildContext context) => const Myhome(),
