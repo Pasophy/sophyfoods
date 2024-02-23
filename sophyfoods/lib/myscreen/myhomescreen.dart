@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sophyfoods/myscreen/main_buyers.dart';
 import 'package:sophyfoods/myscreen/main_riders.dart';
-import 'package:sophyfoods/myscreen/main_selers.dart';
+import 'package:sophyfoods/myscreen/main_sellers.dart';
 import 'package:sophyfoods/mydrawers/drawer_homescren.dart';
 import 'package:sophyfoods/utility/mystyle.dart';
 import 'package:sophyfoods/utility/opendrawer.dart';

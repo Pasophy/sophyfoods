@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sophyfoods/myconstant/myconstant.dart';
-import 'package:sophyfoods/mywidget/add_shop_information.dart';
+import 'package:sophyfoods/mywidget/my_shop_information.dart';
 import 'package:sophyfoods/mywidget/list_food_order.dart';
 import 'package:sophyfoods/mywidget/list_food_shop.dart';
 import 'package:sophyfoods/utility/mystyle.dart';

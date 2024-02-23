@@ -6,7 +6,7 @@ import 'package:sophyfoods/myconstant/myconstant.dart';
 import 'package:sophyfoods/mymodel/usermodel.dart';
 import 'package:sophyfoods/myscreen/main_buyers.dart';
 import 'package:sophyfoods/myscreen/main_riders.dart';
-import 'package:sophyfoods/myscreen/main_selers.dart';
+import 'package:sophyfoods/myscreen/main_sellers.dart';
 import 'package:sophyfoods/utility/mystyle.dart';
 import 'package:sophyfoods/utility/showdailog.dart';
 
