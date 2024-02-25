@@ -1,47 +1,32 @@
 import 'dart:io';
 import 'dart:math';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:location/location.dart';
-import 'package:sophyfoods/myconstant/myconstant.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:sophyfoods/utility/myconstant.dart';
 import 'package:sophyfoods/utility/mystyle.dart';
+import 'package:sophyfoods/utility/showdailog.dart';
 
-class Addshopinformstion extends StatefulWidget {
-  const Addshopinformstion({super.key});
+class Addshopinformation extends StatefulWidget {
+  const Addshopinformation({super.key});
 
   @override
-  State<Addshopinformstion> createState() => _AddshopinformstionState();
+  State<Addshopinformation> createState() => _AddshopinformstionState();
 }
 
-class _AddshopinformstionState extends State<Addshopinformstion> {
+class _AddshopinformstionState extends State<Addshopinformation> {
   late double heights, widths;
   double? lat, lng;
   File? file;
+  String? shopname, phone, address, userid, urlimage;
 
   @override
   void initState() {
     super.initState();
-    findlatlnt();
-  }
-
-  Future<Null> findlatlnt() async {
-    try {
-      LocationData locationData = await findlocationdat();
-      setState(() {
-        lat = locationData.latitude;
-        lng = locationData.longitude;
-      });
-    } catch (e) {
-      return null;
-    }
-    // ignore: avoid_print
-    print("Lat=>$e  lng=>$e");
-  }
-
-  Future<LocationData> findlocationdat() async {
-    Location location = Location();
-    return location.getLocation();
+    findlatlng();
   }
 
   @override
@@ -75,18 +60,46 @@ class _AddshopinformstionState extends State<Addshopinformstion> {
 
   SizedBox showaddbuttom() {
     return SizedBox(
-      height: 50.0,
-      width: widths * 0.8,
+      height: 45.0,
+      width: widths * 0.6,
       child: OutlinedButton(
         style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(
-            Color(Myconstant().blues),
-          ),
+          backgroundColor: MaterialStateProperty.all(Colors.greenAccent),
         ),
-        onPressed: () {},
+        onPressed: () {
+          if (shopname == null ||
+              shopname == "" ||
+              phone == null ||
+              phone == "" ||
+              address == null ||
+              address == "") {
+            mydialog(context, "សូមបញ្ចូលព័ត៌មាន..!");
+          } else if (file == null) {
+            mydialog(context, "សូមបញ្ចូលរូបភាព..!");
+          } else {
+            uploadphoto();
+          }
+        },
         child: Mystyle().showtitle3("Save Information", Colors.white),
       ),
     );
+  }
+
+  Future<LocationData> findlocationdat() async {
+    Location location = Location();
+    return location.getLocation();
+  }
+
+  Future<Null> findlatlng() async {
+    try {
+      LocationData locationData = await findlocationdat();
+      setState(() {
+        lat = locationData.latitude;
+        lng = locationData.longitude;
+      });
+    } catch (e) {
+      rethrow;
+    }
   }
 
   Container showgooglemap() {
@@ -134,6 +147,50 @@ class _AddshopinformstionState extends State<Addshopinformstion> {
     }
   }
 
+  Future<Null> saveinformation() async {
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+    userid = preferences.getString("id");
+    String url =
+        "${Myconstant().domain}/projectflutterfoods/editUserWhereid.php?isAdd=true&id=$userid&shopname=$shopname&phone=$phone&address=$address&picture=$urlimage&lat=$lat&lng=$lng";
+    try {
+      Response response = await Dio().get(url);
+      if (response.toString() == 'true') {
+        // ignore: use_build_context_synchronously
+        Navigator.pop(context);
+        
+      } else {
+        // ignore: use_build_context_synchronously
+        mydialog(context, "insert false");
+      }
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  Future<Null> uploadphoto() async {
+    Random random = Random();
+    int i = random.nextInt(100000000);
+    String imagename = 'shop$i.jpg';
+    String url = '${Myconstant().domain}/projectflutterfoods/savePhoto.php';
+    try {
+      Map<String, dynamic> map = {};
+      map['file'] =
+          await MultipartFile.fromFile(file!.path, filename: imagename);
+      FormData formData = FormData.fromMap(map);
+      //how 1
+      //Response response=  await Dio().post(url, data: formData);
+      //print('===============>$response');
+      //how2
+      await Dio().post(url, data: formData).then((value) {
+        print("==============>$value");
+        urlimage = '/projectflutterfoods/StorePhoto/$imagename';
+        saveinformation();
+      });
+    } catch (e) {
+      rethrow;
+    }
+  }
+
   Widget showpicture() {
     return SizedBox(
       width: widths * 0.9,
@@ -170,8 +227,9 @@ class _AddshopinformstionState extends State<Addshopinformstion> {
         children: [
           Container(
             margin: const EdgeInsets.only(top: 15.0),
-            width: widths * 0.8,
+            width: widths * 0.75,
             child: TextField(
+              onChanged: (value) => shopname = value.trim(),
               style:
                   const TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
               decoration: InputDecoration(
@@ -209,8 +267,9 @@ class _AddshopinformstionState extends State<Addshopinformstion> {
         children: [
           Container(
             margin: const EdgeInsets.only(top: 15.0),
-            width: widths * 0.8,
+            width: widths * 0.75,
             child: TextField(
+              onChanged: (value) => phone = value.trim(),
               keyboardType: TextInputType.phone,
               style:
                   const TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
@@ -249,8 +308,9 @@ class _AddshopinformstionState extends State<Addshopinformstion> {
         children: [
           Container(
             margin: const EdgeInsets.only(top: 15.0),
-            width: widths * 0.8,
+            width: widths * 0.75,
             child: TextField(
+              onChanged: (value) => address = value.trim(),
               maxLines: 2,
               keyboardAppearance: Brightness.light,
               style: const TextStyle(

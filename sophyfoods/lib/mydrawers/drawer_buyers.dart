@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sophyfoods/myconstant/myconstant.dart';
+import 'package:sophyfoods/utility/myconstant.dart';
 import 'package:sophyfoods/myscreen/user_signin.dart';
 import 'package:sophyfoods/myscreen/user_signup.dart';
 

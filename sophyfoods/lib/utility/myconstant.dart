@@ -3,7 +3,7 @@ class Myconstant {
   final String appname = "Sophyfood";
 
   //MyDomain
-  final String domain = 'https://44ab-117-20-113-105.ngrok-free.app';
+  final String domain = 'https://0eb9-117-20-117-79.ngrok-free.app';
 
   //Myroute
 

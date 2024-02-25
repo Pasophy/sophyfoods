@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:sophyfoods/myconstant/myconstant.dart';
+import 'package:sophyfoods/utility/myconstant.dart';
 import 'package:sophyfoods/utility/mystyle.dart';
 import 'package:sophyfoods/utility/showdailog.dart';
 import 'package:dio/dio.dart';

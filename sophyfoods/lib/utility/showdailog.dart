@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sophyfoods/myconstant/myconstant.dart';
+import 'package:sophyfoods/utility/myconstant.dart';
 
 Future<void> mydialog(BuildContext context, String message) async {
   showDialog(

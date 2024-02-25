@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:sophyfoods/myconstant/myconstant.dart';
+import 'package:sophyfoods/utility/myconstant.dart';
 import 'package:sophyfoods/mymodel/usermodel.dart';
 import 'package:sophyfoods/myscreen/main_buyers.dart';
 import 'package:sophyfoods/myscreen/main_riders.dart';
