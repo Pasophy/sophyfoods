@@ -64,7 +64,7 @@ class _AddshopinformstionState extends State<Addshopinformation> {
       width: widths * 0.6,
       child: OutlinedButton(
         style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(Colors.greenAccent),
+          backgroundColor: MaterialStateProperty.all(Color(Myconstant().greencokor)),
         ),
         onPressed: () {
           if (shopname == null ||

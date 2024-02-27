@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sophyfoods/utility/myconstant.dart';
 import 'package:sophyfoods/myscreen/main_buyers.dart';
-import 'package:sophyfoods/myscreen/myhomescreen.dart';
+import 'package:sophyfoods/myscreen/myhome_screen.dart';
 import 'package:sophyfoods/myscreen/main_riders.dart';
 import 'package:sophyfoods/myscreen/main_sellers.dart';
 import 'package:sophyfoods/myscreen/user_signin.dart';

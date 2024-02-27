@@ -185,7 +185,7 @@ class _ShopinformationState extends State<Shopinformation> {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               FloatingActionButton(
-                backgroundColor: Colors.green,
+                backgroundColor: Color(Myconstant().greencokor),
                 onPressed: () {
                   if (usermodel!.shopname != "") {
                     addinformationshop(const Editshopinformation());

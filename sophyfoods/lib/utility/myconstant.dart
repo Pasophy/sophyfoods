@@ -3,7 +3,7 @@ class Myconstant {
   final String appname = "Sophyfood";
 
   //MyDomain
-  final String domain = 'https://0eb9-117-20-117-79.ngrok-free.app';
+  final String domain = 'https://3ed1-117-20-117-79.ngrok-free.app';
 
   //Myroute
 
@@ -23,6 +23,7 @@ class Myconstant {
   final int reds = 0xffffBE3D0A;
   final int blues = 0xffff1F34D0;
   final int appbarcolor = 0xffff008400;
+  final int greencokor = 0xffff09AF00;
 
   Myconstant();
 }
