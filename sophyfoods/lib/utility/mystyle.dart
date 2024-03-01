@@ -23,6 +23,19 @@ class Mystyle {
         style: TextStyle(
             fontSize: 20.0, fontWeight: FontWeight.bold, color: color),
       );
+  Widget showfoodname(text, color) => Text(
+        text,
+        style: TextStyle(
+            fontSize: 22.0, fontWeight: FontWeight.bold, color: color),
+      );
+
+  Widget showfooddetail(text, color) => Text(
+        text,
+        style: TextStyle(
+            fontSize: 18.0, fontWeight: FontWeight.bold, color: color),
+      );
+    
+    
 
   Widget showinformation(String text) => Center(
         child: Column(

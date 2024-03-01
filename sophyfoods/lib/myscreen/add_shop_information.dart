@@ -35,7 +35,7 @@ class _AddshopinformstionState extends State<Addshopinformation> {
     widths = MediaQuery.sizeOf(context).width;
     return Scaffold(
       appBar: AppBar(
-        title: Mystyle().showtitle2("Add Information", Colors.white),
+        title: Mystyle().showtitle2("បញ្ចូលព័ត៌មានហាង", Colors.white),
       ),
       body: GestureDetector(
         onTap: () => FocusScope.of(context).requestFocus(
@@ -64,7 +64,8 @@ class _AddshopinformstionState extends State<Addshopinformation> {
       width: widths * 0.6,
       child: OutlinedButton(
         style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(Color(Myconstant().greencokor)),
+          backgroundColor:
+              MaterialStateProperty.all(Color(Myconstant().greencokor)),
         ),
         onPressed: () {
           if (shopname == null ||
@@ -157,7 +158,6 @@ class _AddshopinformstionState extends State<Addshopinformation> {
       if (response.toString() == 'true') {
         // ignore: use_build_context_synchronously
         Navigator.pop(context);
-        
       } else {
         // ignore: use_build_context_synchronously
         mydialog(context, "insert false");

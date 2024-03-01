@@ -4,7 +4,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:sophyfoods/mymodel/usermodel.dart';
+import 'package:sophyfoods/mymodel/user_model.dart';
 import 'package:sophyfoods/myscreen/eidt_shop_information.dart';
 import 'package:sophyfoods/utility/myconstant.dart';
 import 'package:sophyfoods/myscreen/add_shop_information.dart';
@@ -185,6 +185,12 @@ class _ShopinformationState extends State<Shopinformation> {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               FloatingActionButton(
+                shape: CircleBorder(
+                  side: BorderSide(
+                    style: BorderStyle.solid,
+                    color: Color(Myconstant().greencokor),
+                  ),
+                ),
                 backgroundColor: Color(Myconstant().greencokor),
                 onPressed: () {
                   if (usermodel!.shopname != "") {

@@ -8,7 +8,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:location/location.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:sophyfoods/mymodel/usermodel.dart';
+import 'package:sophyfoods/mymodel/user_model.dart';
 import 'package:sophyfoods/utility/myconstant.dart';
 import 'package:sophyfoods/utility/mystyle.dart';
 import 'package:sophyfoods/utility/showdailog.dart';
@@ -97,6 +97,7 @@ class _EditshopinformationState extends State<Editshopinformation> {
             await MultipartFile.fromFile(file!.path, filename: imagename);
         FormData formData = FormData.fromMap(map);
         await Dio().post(url, data: formData).then((value) async {
+          print("======================>$value");
           urlpicture = '/projectflutterfoods/StorePhoto/$imagename';
           String? userid = usermodel!.id;
           String url =
@@ -129,7 +130,7 @@ class _EditshopinformationState extends State<Editshopinformation> {
           color: Colors.white,
           iconSize: 45.0,
         ),
-        title: Mystyle().showtitle2("Edit Information", Colors.white),
+        title: Mystyle().showtitle2("កែប្រែព័ត៌មានហាង", Colors.white),
       ),
       body:
           usermodel == null ? Mystyle().showprogress() : showmycontent(context),
@@ -302,7 +303,7 @@ class _EditshopinformationState extends State<Editshopinformation> {
               MaterialStateProperty.all(Color(Myconstant().greencokor)),
         ),
         onPressed: () => confirmmydailog(),
-        child: Mystyle().showtitle3("Edit Information", Colors.white),
+        child: Mystyle().showtitle3("កែប្រែព័ត៌ហាង", Colors.white),
       ),
     );
   }
@@ -311,15 +312,23 @@ class _EditshopinformationState extends State<Editshopinformation> {
     showDialog(
       context: context,
       builder: (context) => SimpleDialog(
-        title: const Text("តើអ្នកចង់កែប្រែទិន្នន័យមែនទេ..?"),
+        title: Mystyle().showtitle3(
+            "តើអ្នកចង់កែប្រែព័ត៌មានមែនទេ..?", Color(Myconstant().blues)),
         children: [
           Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               OutlinedButton(
                 onPressed: () {
                   editinformationshop();
                   Navigator.pop(context);
                 },
+                style: OutlinedButton.styleFrom(
+                  side: BorderSide(
+                    style: BorderStyle.solid,
+                    color: Color(Myconstant().greencokor),
+                  ),
+                ),
                 child:
                     Mystyle().showtitle3("យល់ព្រម", Color(Myconstant().reds)),
               ),
@@ -328,6 +337,12 @@ class _EditshopinformationState extends State<Editshopinformation> {
                 onPressed: () {
                   Navigator.pop(context);
                 },
+                style: OutlinedButton.styleFrom(
+                  side: BorderSide(
+                    style: BorderStyle.solid,
+                    color: Color(Myconstant().greencokor),
+                  ),
+                ),
                 child: Mystyle()
                     .showtitle3("មិនយល់ព្រម", Color(Myconstant().reds)),
               )
