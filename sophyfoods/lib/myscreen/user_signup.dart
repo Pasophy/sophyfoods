@@ -376,7 +376,7 @@ class _MysignoutState extends State<Mysignup> {
           width: 25.0,
         ),
         Radio(
-          value: 'selers',
+          value: 'sellers',
           groupValue: usertype,
           onChanged: (value) {
             setState(() {
@@ -386,7 +386,7 @@ class _MysignoutState extends State<Mysignup> {
           fillColor: MaterialStatePropertyAll(Color(Myconstant().reds)),
         ),
         Text(
-          'seler',
+          'seller',
           style: TextStyle(
             color: Color(Myconstant().reds),
             fontWeight: FontWeight.bold,

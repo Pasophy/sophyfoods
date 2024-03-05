@@ -221,7 +221,7 @@ class _MysigninState extends State<Mysignin> {
         Usermodel usermodel = Usermodel.fromJson(map);
         if (password == usermodel.password) {
           String? usertype = usermodel.usertype;
-          if (usertype == 'selers') {
+          if (usertype == 'sellers') {
             routetoservice(const Myselers(),usermodel);
           } else if (usertype == 'buyers') {
             routetoservice(const Mybuyers(),usermodel);

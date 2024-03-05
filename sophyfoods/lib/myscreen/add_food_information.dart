@@ -61,7 +61,7 @@ class _AddfoodinformationState extends State<Addfoodinformation> {
               const SizedBox(height: 10.0),
               showtitlefoodpicture(),
               const SizedBox(height: 15.0),
-              file == null ? showaddpicturefood() : Image.file(file!),
+              showaddpicturefood(),
               const SizedBox(height: 10.0),
               showtitlefooddetail(),
               const SizedBox(height: 15.0),
@@ -78,6 +78,12 @@ class _AddfoodinformationState extends State<Addfoodinformation> {
       ),
     );
   }
+
+  Widget showimagefood() => SizedBox(
+        height: hieghts * 0.5,
+        width: widths * 0.5,
+        child: Image.file(file!),
+      );
 
   Widget showsavefoodbuttom() {
     return SizedBox(
@@ -100,7 +106,7 @@ class _AddfoodinformationState extends State<Addfoodinformation> {
             backgroundColor: Color(Myconstant().greencokor),
             elevation: 10.0,
             minimumSize: const Size(200.0, 45.0)),
-        child: Mystyle().showtitle2(
+        child: Mystyle().showtitle3(
           "រក្សាទុក",
           Colors.white,
         ),
@@ -215,8 +221,8 @@ class _AddfoodinformationState extends State<Addfoodinformation> {
     try {
       var object = await ImagePicker().pickImage(
         source: source,
-        maxWidth: 400.0,
-        maxHeight: 270.0,
+        maxWidth: 750.0,
+        maxHeight: 750.0,
       );
 
       setState(() {
@@ -225,7 +231,7 @@ class _AddfoodinformationState extends State<Addfoodinformation> {
     } catch (e) {}
   }
 
-  Future<Null> uploadimageandinserdata() async {
+  Future<void> uploadimageandinserdata() async {
     Random random = Random();
     int i = random.nextInt(1000000000);
     String picturename = "food$i.jpg";
@@ -269,9 +275,14 @@ class _AddfoodinformationState extends State<Addfoodinformation> {
           ),
         ),
         SizedBox(
-          height: hieghts * 0.45,
-          width: widths * 0.45,
-          child: Image.asset("images/image1.png"),
+          height: hieghts * 0.5,
+          width: widths * 0.5,
+          child: file == null
+              ? Image.asset("images/image1.png")
+              : Image.file(
+                  file!,
+                  fit: BoxFit.contain,
+                ),
         ),
         SizedBox(
           width: widths * 0.14,

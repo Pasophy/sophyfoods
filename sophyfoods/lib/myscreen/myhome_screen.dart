@@ -27,7 +27,7 @@ class _MyhomeState extends State<Myhome> {
       SharedPreferences preferences = await SharedPreferences.getInstance();
       String? usertype = preferences.getString('usertype');
       if (usertype != null && usertype.isNotEmpty) {
-        if (usertype == 'selers') {
+        if (usertype == 'sellers') {
           routrtoservice(const Myselers());
         } else if (usertype == 'buyers') {
           routrtoservice(const Mybuyers());

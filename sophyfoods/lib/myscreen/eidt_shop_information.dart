@@ -97,7 +97,6 @@ class _EditshopinformationState extends State<Editshopinformation> {
             await MultipartFile.fromFile(file!.path, filename: imagename);
         FormData formData = FormData.fromMap(map);
         await Dio().post(url, data: formData).then((value) async {
-          print("======================>$value");
           urlpicture = '/projectflutterfoods/StorePhoto/$imagename';
           String? userid = usermodel!.id;
           String url =
