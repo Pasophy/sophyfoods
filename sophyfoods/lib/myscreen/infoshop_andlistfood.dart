@@ -18,11 +18,11 @@ class Showinfoshopandfood extends StatefulWidget {
 
 class _ShowinfoshopandfoodState extends State<Showinfoshopandfood> {
   Usermodel? usermodel;
-  Widget? currentwidget;
+
   int pageindex = 0;
-  List<Widget> listmywidget = [const ShowAboutShop(), const ShowFoodMenushop()];
+  List<Widget> listmywidget = [];
   List<Widget> listtitleappbar = [
-    Mystyle().showtitle2("ព័ត៌លម្អិតមានហាង", Colors.white),
+    Mystyle().showtitle2("ព័ត៌មានលម្អិតហាង", Colors.white),
     Mystyle().showtitle2("រាយនាមមុខម្ហូប", Colors.white)
   ];
   @override
@@ -31,7 +31,9 @@ class _ShowinfoshopandfoodState extends State<Showinfoshopandfood> {
     super.initState();
     usermodel = widget.usermodel;
     setState(() {
-      currentwidget = listmywidget[pageindex];
+      listmywidget.add(ShowAboutShop(usermodel: usermodel!));
+      listmywidget.add(ShowFoodMenushop(usermodel: usermodel!));
+      listmywidget[pageindex];
     });
   }
 
@@ -49,23 +51,24 @@ class _ShowinfoshopandfoodState extends State<Showinfoshopandfood> {
           ),
         ),
       ),
-      body: currentwidget,
+      body: listmywidget[pageindex],
       bottomNavigationBar: BottomNavigationBar(
-          unselectedFontSize: 18.0,
-          selectedFontSize: 16.0,
-          selectedItemColor: Colors.red.shade900,
-          unselectedItemColor: Colors.red.shade500,
-          selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
-          backgroundColor: Colors.amber,
-          currentIndex: pageindex,
-          onTap: (value) {
-            setState(() {
-              pageindex = value;
-              currentwidget = listmywidget[pageindex];
-              listtitleappbar[pageindex];
-            });
-          },
-          items: <BottomNavigationBarItem>[showaboutshop(), showlistmenu()]),
+        unselectedFontSize: 16.0,
+        selectedFontSize: 16.0,
+        selectedItemColor: Colors.red.shade900,
+        unselectedItemColor: Colors.red.shade500,
+        selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
+        backgroundColor: Colors.amber.shade500,
+        currentIndex: pageindex,
+        onTap: (value) {
+          setState(() {
+            pageindex = value;
+            listmywidget[pageindex];
+            listtitleappbar[pageindex];
+          });
+        },
+        items: <BottomNavigationBarItem>[showaboutshop(), showlistmenu()],
+      ),
     );
   }
 
@@ -74,7 +77,7 @@ class _ShowinfoshopandfoodState extends State<Showinfoshopandfood> {
         icon: Icon(
           Icons.food_bank,
           color: Color(Myconstant().appbarcolor),
-          size: 30.0,
+          size: 26.0,
         ),
         tooltip: "Aboutshop",
         label: "ព័ត៌មានហាង");
@@ -85,9 +88,9 @@ class _ShowinfoshopandfoodState extends State<Showinfoshopandfood> {
         icon: Icon(
           Icons.restaurant_menu,
           color: Color(Myconstant().appbarcolor),
-          size: 30.0,
+          size: 26.0,
         ),
         tooltip: "Listfood",
-        label: "រាយមុខម្ហូម");
+        label: "រាយមុខម្ហូប");
   }
 }

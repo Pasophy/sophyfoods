@@ -1,12 +1,8 @@
-
-
-
 import 'package:flutter/material.dart';
 import 'package:sophyfoods/utility/mystyle.dart';
 
 class Orderfood extends StatefulWidget {
   const Orderfood({super.key});
-
   @override
   State<Orderfood> createState() => _OrderfoodState();
 }

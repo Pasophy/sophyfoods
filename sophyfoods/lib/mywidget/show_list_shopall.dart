@@ -90,7 +90,7 @@ class _ShowalllistshopState extends State<Showalllistshop> {
         : Expanded(
             child: GridView.extent(
               maxCrossAxisExtent: 280.0,
-              mainAxisSpacing: 10.0,
+              mainAxisSpacing: 3.0,
               crossAxisSpacing: 3.0,
               children: myshopcard,
             ),
