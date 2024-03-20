@@ -95,6 +95,5 @@ class _ShowalllistshopState extends State<Showalllistshop> {
               children: myshopcard,
             ),
           );
-    ;
   }
 }

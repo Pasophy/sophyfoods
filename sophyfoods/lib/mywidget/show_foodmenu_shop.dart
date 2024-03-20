@@ -291,18 +291,18 @@ class _ShowFoodMenushopState extends State<ShowFoodMenushop> {
     datamap['namefood'] = namefoode;
     datamap['price'] = price;
     datamap['amount'] = amounts.toString();
-    datamap['totalamount'] = totalamount.toString();
+    datamap['sumamount'] = totalamount.toString();
     datamap['distance'] = mydistance.toString();
     datamap['transport'] = mytransport.toString();
-    Ordermodel ordermodel = Ordermodel.fromJson(datamap);
 
     var object = await SqliteHelper().gateAllOrderdata();
-    String idshopsqlite = object[0].idshop.toString();
+    Ordermodel ordermodel = Ordermodel.fromJson(datamap);
     if (object.isEmpty) {
       await SqliteHelper().insertdataOrder(ordermodel).then((value) {
         showtoast("បានសម្រេច");
       });
     } else {
+      String idshopsqlite = object[0].idshop.toString();
       if (idshop == idshopsqlite) {
         await SqliteHelper().insertdataOrder(ordermodel).then((value) {
           showtoast("បានសម្រេច");

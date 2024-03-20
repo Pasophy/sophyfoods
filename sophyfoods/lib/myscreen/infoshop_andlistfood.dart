@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sophyfoods/mymodel/user_model.dart';
+import 'package:sophyfoods/mywidget/show_mycart_order.dart';
 import 'package:sophyfoods/mywidget/show_about_shop.dart';
 import 'package:sophyfoods/mywidget/show_foodmenu_shop.dart';
 import 'package:sophyfoods/utility/myconstant.dart';
@@ -23,7 +24,8 @@ class _ShowinfoshopandfoodState extends State<Showinfoshopandfood> {
   List<Widget> listmywidget = [];
   List<Widget> listtitleappbar = [
     Mystyle().showtitle2("ព័ត៌មានលម្អិតហាង", Colors.white),
-    Mystyle().showtitle2("រាយនាមមុខម្ហូប", Colors.white)
+    Mystyle().showtitle2("រាយនាមមុខម្ហូប", Colors.white),
+    Mystyle().showtitle2("អាហារដែលបានកម៉្មង់", Colors.white),
   ];
   @override
   void initState() {
@@ -33,6 +35,7 @@ class _ShowinfoshopandfoodState extends State<Showinfoshopandfood> {
     setState(() {
       listmywidget.add(ShowAboutShop(usermodel: usermodel!));
       listmywidget.add(ShowFoodMenushop(usermodel: usermodel!));
+      listmywidget.add( const Cartorderfood());
       listmywidget[pageindex];
     });
   }
@@ -67,7 +70,11 @@ class _ShowinfoshopandfoodState extends State<Showinfoshopandfood> {
             listtitleappbar[pageindex];
           });
         },
-        items: <BottomNavigationBarItem>[showaboutshop(), showlistmenu()],
+        items: <BottomNavigationBarItem>[
+          showaboutshop(),
+          showlistmenu(),
+          showaboutcard()
+        ],
       ),
     );
   }
@@ -92,5 +99,16 @@ class _ShowinfoshopandfoodState extends State<Showinfoshopandfood> {
         ),
         tooltip: "Listfood",
         label: "រាយមុខម្ហូប");
+  }
+
+  BottomNavigationBarItem showaboutcard() {
+    return BottomNavigationBarItem(
+        icon: Icon(
+          Icons.shopping_cart,
+          color: Color(Myconstant().appbarcolor),
+          size: 20.0,
+        ),
+        tooltip: "Cart",
+        label: "កម៉្មង់");
   }
 }

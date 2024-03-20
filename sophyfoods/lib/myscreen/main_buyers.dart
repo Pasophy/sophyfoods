@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:sophyfoods/myscreen/user_signin.dart';
-import 'package:sophyfoods/myscreen/user_signup.dart';
+import 'package:sophyfoods/mywidget/show_mycart_order.dart';
 import 'package:sophyfoods/mywidget/show_list_shopall.dart';
 import 'package:sophyfoods/mywidget/show_listfood_order.dart';
 import 'package:sophyfoods/utility/myconstant.dart';
@@ -42,10 +41,14 @@ class _MybuyersState extends State<Mybuyers> {
           title: Mystyle().showtitle2('Mainbuyser', Colors.white),
           actions: <Widget>[
             IconButton(
-              onPressed: () => usersignout(context),
+              onPressed: () {
+                setState(() {
+                  currentwidget = const Cartorderfood();
+                });
+              },
               icon: const Icon(
-                Icons.output,
-                size: 30.0,
+                Icons.shopping_cart,
+                size: 32.0,
               ),
               color: Colors.white,
             )
@@ -63,8 +66,8 @@ class _MybuyersState extends State<Mybuyers> {
             children: [
               const SizedBox(height: 15.0),
               drawerheader(),
-              showaboutbuyer(),
               showlistshop(),
+              showaboutcartorder(),
               showlistorder(),
             ],
           ),
@@ -79,21 +82,20 @@ class _MybuyersState extends State<Mybuyers> {
     );
   }
 
-  Widget showaboutbuyer() {
+  Widget showaboutcartorder() {
     return ListTile(
       leading: const Icon(
-        Icons.info,
+        Icons.shopping_cart,
         size: 36.0,
         color: Colors.green,
       ),
-      title: Mystyle().showtitle3("ព័ត៌មានរបស់អ្នក", Colors.blue.shade800),
+      title: Mystyle().showtitle3("អាហារដែលបានកម៉្មង", Colors.blue.shade800),
       hoverColor: Colors.red,
       onTap: () {
+        setState(() {
+          currentwidget = const Cartorderfood();
+        });
         Navigator.pop(context);
-        MaterialPageRoute route = MaterialPageRoute(
-          builder: (values) => const Mysignin(),
-        );
-        Navigator.push(context, route);
       },
     );
   }
@@ -123,7 +125,8 @@ class _MybuyersState extends State<Mybuyers> {
         size: 36.0,
         color: Colors.green,
       ),
-      title: Mystyle().showtitle3("អាហារដែលបានកម្ម៉ង់", Colors.blue.shade800),
+      title:
+          Mystyle().showtitle3("អាហារដែលទទួលម្ម៉ង់រួច", Colors.blue.shade800),
       hoverColor: Colors.red,
       onTap: () {
         setState(() {
@@ -145,13 +148,7 @@ class _MybuyersState extends State<Mybuyers> {
         ),
         title: Mystyle().showtitle2("ចាកចេញ", Colors.red.shade800),
         hoverColor: Colors.black54,
-        onTap: () {
-          Navigator.pop(context);
-          MaterialPageRoute route = MaterialPageRoute(
-            builder: (values) => const Mysignup(),
-          );
-          Navigator.push(context, route);
-        },
+        onTap: () => usersignout(context),
       ),
     );
   }

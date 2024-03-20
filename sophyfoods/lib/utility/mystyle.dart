@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sophyfoods/mywidget/show_mycart_order.dart';
 import 'package:sophyfoods/utility/myconstant.dart';
 
 class Mystyle {
@@ -34,8 +35,6 @@ class Mystyle {
         style: TextStyle(
             fontSize: 18.0, fontWeight: FontWeight.bold, color: color),
       );
-    
-    
 
   Widget showinformation(String text) => Center(
         child: Column(

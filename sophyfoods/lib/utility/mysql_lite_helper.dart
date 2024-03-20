@@ -62,4 +62,23 @@ class SqliteHelper {
     }
     return listorder;
   }
+
+  //Delete data order
+  Future<Null> deletefoodorder(int id) async {
+    Database database = await connectDatabase();
+    try {
+      database.delete(tableName, where: "$idorder = $id");
+    } catch (e) {
+      print("error delete");
+    }
+  }
+
+  Future<Null> deletealldataorder() async {
+    Database database = await connectDatabase();
+    try {
+      database.delete(tableName);
+    } catch (e) {
+      print("error ${e.toString()}");
+    }
+  }
 }
